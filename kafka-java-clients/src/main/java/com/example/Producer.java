@@ -54,7 +54,6 @@ public class Producer {
             });
             TimeUnit.MILLISECONDS.sleep(1);
         }
-
         producer.close();
 
     }

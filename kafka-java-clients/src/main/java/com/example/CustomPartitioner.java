@@ -14,7 +14,7 @@ public class CustomPartitioner implements Partitioner {
     }
 
     @Override
-    public int partition(String arg0, Object arg1, byte[] arg2, Object arg3, byte[] arg4, Cluster arg5) {
+    public int partition(String topic, Object key, byte[] keyByte, Object value, byte[] valueByte, Cluster cluster) {
         // Custom logic to determine partition
         return 2;
     }
