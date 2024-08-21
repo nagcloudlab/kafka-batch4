@@ -6,6 +6,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
+import java.util.concurrent.TimeUnit;
 
 public class Producer {
     public static void main(String[] args) throws Exception {
@@ -53,14 +54,12 @@ public class Producer {
 
         // 
         properties.put(ProducerConfig.CLIENT_ID_CONFIG, "producer-1");
-        properties.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, "com.example.ProducerInterceptor");
-
+        //properties.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, "com.example.ProducerInterceptor");
 
 
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        
         
         // way-1: Synchronous
         // String topic = "topic1";
@@ -74,25 +73,31 @@ public class Producer {
         //     e.printStackTrace();
         // }
 
+
         // way-2: Asynchronous    
         String topic = "topic1";
-        for (int i = 0; i < 32; i++) {
+        for (int i = 0; i < 1000000; i++) {
             // 1k sized message
-            String value = "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n" +
-                "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n" +
-                "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n" +
-                "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation write";
+            String value = "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
+                    +
+                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
+                    +
+                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
+                    +
+                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation write";
             //String key=List.of("key1","key2","key3").get(i%3);    
-            ProducerRecord<String, String> record = new ProducerRecord<>(topic,0,null,value);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topic, value);
             producer.send(record, (metadata, exception) -> {
                 if (exception != null) {
                     exception.printStackTrace();
                 } else {
-                    System.out.println("Record sent to partition " + metadata.partition() + " with offset " + metadata.offset());
+                    System.out.println(
+                            "Record sent to partition " + metadata.partition() + " with offset " + metadata.offset());
                 }
             });
-            // TimeUnit.SECONDS.sleep(1);
+            TimeUnit.MILLISECONDS.sleep(1);
         }
+        
         producer.close();
 
     }
