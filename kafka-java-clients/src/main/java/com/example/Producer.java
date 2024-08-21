@@ -21,7 +21,10 @@ public class Producer {
 
 
         
+        //-------------------------------------------
         // safe ( durability ) producer
+        //-------------------------------------------
+
         // - create topic with replication factor > 1
         // - acks=all
         // - producer config: retries, retry.backoff.ms, delivery.timeout.ms
@@ -32,6 +35,8 @@ public class Producer {
         properties.put(ProducerConfig.RETRIES_CONFIG, "2147483647");
         properties.put(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, "1000");
         properties.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, "120000");
+
+        
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
