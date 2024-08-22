@@ -1,6 +1,7 @@
 package com.example;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.CooperativeStickyAssignor;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -32,7 +33,7 @@ public class FooConsumer {
         // static group membership
         //properties.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "foo-1");
 
-        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
         //properties.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "5000");
 
         // How to control polling behavior
@@ -53,6 +54,9 @@ public class FooConsumer {
         // retry, retry.backoff.ms, request.timeout.ms
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
+
+        Map<TopicPartition, OffsetAndMetadata> offsets = new HashMap<>(); // redis
+
         consumer.subscribe(java.util.Collections.singletonList("topic1"));
 
         // add a shutdown hook
@@ -64,16 +68,16 @@ public class FooConsumer {
             while (true) {
                 //System.out.println("polling");
                 // cache
-                Map<TopicPartition, OffsetAndMetadata> offsets = new HashMap<>(); // redis
                 ConsumerRecords<String, String> records = consumer.poll(java.time.Duration.ofMillis(1000));
                 //System.out.println("records count: " + records.count());
                 records.forEach(record -> {
                     // print topic, partition, offset
                     System.out.println(record.topic() + "\t" + record.partition() + "\t" + record.offset());
-                    offsets.put(new TopicPartition(record.topic(), record.partition()), new OffsetAndMetadata(record.offset() + 1));
+                    offsets.put(new TopicPartition(record.topic(), record.partition()),
+                            new OffsetAndMetadata(record.offset() + 1));
                 });
+                //consumer.commitSync(offsets); // commit offset request
                 //TimeUnit.SECONDS.sleep(1);
-                consumer.commitSync(offsets); // commit offset request
             }
         } catch (WakeupException e){
             //...
