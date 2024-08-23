@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
-public class TransactionalConsumerClient {
+public class ConsumerWithIsolationLevel {
     public static void main(String[] args) {
 
         Properties props = new Properties();

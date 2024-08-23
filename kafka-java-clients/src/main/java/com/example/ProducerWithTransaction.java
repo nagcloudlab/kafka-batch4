@@ -8,7 +8,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class TransactionalProducerClient {
+public class ProducerWithTransaction {
     public static void main(String[] args) {
 
         Properties props = new Properties();

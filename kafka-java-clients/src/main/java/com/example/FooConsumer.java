@@ -50,7 +50,7 @@ public class FooConsumer {
 
 
         // other configurations
-        properties.put(ConsumerConfig.CLIENT_ID_CONFIG, "foo-consumer");
+        //properties.put(ConsumerConfig.CLIENT_ID_CONFIG, "foo-consumer");
         // retry, retry.backoff.ms, request.timeout.ms
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
