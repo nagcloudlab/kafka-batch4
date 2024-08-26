@@ -83,7 +83,6 @@ public class StreamsClient {
 //                .to("flat-mapped-numbers");
 
         // 4. branch
-
 //        KStream<String, String>[] branches = stream.branch(
 //                (k, v) -> Integer.parseInt(v) % 2 == 0,
 //                (k, v) -> Integer.parseInt(v) % 2 != 0
