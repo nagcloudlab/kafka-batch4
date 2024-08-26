@@ -75,18 +75,18 @@ public class Producer {
 
 
         // way-2: Asynchronous    
-        String topic = "topic1";
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+        String topic = "numbers";
+        for (int i = 0; i < 1000000; i++) {
             // 1k sized message
-            String value = "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
-                    +
-                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
-                    +
-                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
-                    +
-                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation write";
+//            String value = "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
+//                    +
+//                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
+//                    +
+//                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation written in Java and Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feed\n"
+//                    +
+//                    "Apache Kafka is a distributed event store and stream-processing platform. It is an open-source system developed by the Apache Software Foundation write";
             //String key=List.of("key1","key2","key3").get(i%3);    
-            ProducerRecord<String, String> record = new ProducerRecord<>(topic, value);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topic, String.valueOf(i));
             producer.send(record, (metadata, exception) -> {
                 if (exception != null) {
                     exception.printStackTrace();

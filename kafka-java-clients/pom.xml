@@ -20,6 +20,12 @@
             <artifactId>kafka-clients</artifactId>
             <version>3.7.1</version>
         </dependency>
+        <!-- kafka streams-->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams</artifactId>
+            <version>3.7.1</version>
+        </dependency>
         <!-- slf4j-api -->
         <dependency>
             <groupId>org.slf4j</groupId>

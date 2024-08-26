@@ -74,10 +74,19 @@ public class ConsumerAndProducer {
 // - stateful processing
 // - etc
 
-// using consumer and producer api leads to a lot of boilerplate code
 
-// solution: streams api
+// to consider
+
+// - fault tolerance
+// - scalability
+// - real-time processing
+// - exactly-once processing
+// - etc
+
+// how to implement data processing in Kafka?
+
+// - Kafka Streams
+
 // - java based library
-
-// if you are not java developer, you can use ksqldb
-// Select * from numbers where value % 2 = 0 put into even-numbers;
+// or
+// - KSQL    
