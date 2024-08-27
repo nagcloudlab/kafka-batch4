@@ -1,7 +1,4 @@
 https://docs.google.com/presentation/d/15AQYMQQdoqsqkGKXOJtG_yZ8TcUVLHku47VEn9onxHc/edit?usp=sharing
-https://nagcloudlab.notion.site/Kafka-Connect-b2abc9e11bbe4ddd8c5de16dc17edcc0?pvs=4
-https://nagcloudlab.notion.site/Kafka-Redis-7d32a7c483694bcebb33766c7e5ee9f7?pvs=4
 
 
-
-https://github.com/confluentinc/demo-scene
+https://nagcloudlab.notion.site/Kafka_Archive-bea7ff19824e49cba00cf3e59e9eff15?pvs=4
