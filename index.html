@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Rest Proxy Demo</h1>
+
+    <button id="veg">Veg</button>
+    <button id="no-veg">NonVeg</button>
+
+    <script>
+      const veg = document.getElementById("veg");
+      const noVeg = document.getElementById("no-veg");
+
+      veg.addEventListener("click", () => {
+        console.log("veg clicked");
+        /*
+
+      curl -X POST -H "Content-Type: application/vnd.kafka.json.v2+json" \
+           --data '{"records":[{"value":{"foo":"bar"}}]}' \
+           http://localhost:8082/topics/my-topic
+           */
+
+        fetch("http://localhost:8082/topics/food-items", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/vnd.kafka.json.v2+json",
+          },
+          body: JSON.stringify({
+            records: [
+              {
+                value: {
+                  type: "veg",
+                },
+              },
+            ],
+          }),
+        });
+
+        noVeg.addEventListener("click", () => {
+          console.log("no-veg clicked");
+
+          fetch("http://localhost:8082/topics/food-items", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/vnd.kafka.json.v2+json",
+            },
+            body: JSON.stringify({
+              records: [
+                {
+                  value: {
+                    type: "non-veg",
+                  },
+                },
+              ],
+            }),
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
