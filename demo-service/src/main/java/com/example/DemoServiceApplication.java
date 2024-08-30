@@ -37,7 +37,7 @@ public class DemoServiceApplication {
 	@GetMapping("/hello/{name}")
 	public String getMethodName(@PathVariable String name) {
 		//requestCount = Integer.toString(Integer.parseInt(requestCount)+1);
-		Long requestCount = redisTemplate.opsForValue().increment("request:count",1);
+		Long requestCount = redisTemplate.opsForValue().increment("request:count",1); // INCRBy request:count 1
 		return "Hello "+name+"! Request count: "+requestCount;
 	}
 	
