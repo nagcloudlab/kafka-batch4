@@ -1,0 +1,2 @@
+[2024-08-22 16:18:31,020] INFO [LocalLog partition=topic1-0, dir=/tmp/kafka-logs-102] Rolled new log segment at offset 1005285 in 9 ms. (kafka.log.LocalLog)
+[2024-08-22 16:18:31,024] INFO [ProducerStateManager partition=topic1-0] Wrote producer snapshot at offset 1005285 with 6 producer ids in 1 ms. (org.apache.kafka.storage.internals.log.ProducerStateManager)

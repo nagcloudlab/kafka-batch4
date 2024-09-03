@@ -1,0 +1,4 @@
+com/example/FooConsumer.class
+com/example/CustomPartitioner.class
+com/example/Producer.class
+com/example/ProducerInterceptor.class

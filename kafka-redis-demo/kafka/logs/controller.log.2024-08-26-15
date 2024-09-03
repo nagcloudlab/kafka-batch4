@@ -1,0 +1,8 @@
+[2024-08-26 17:07:29,928] INFO [ControllerEventThread controllerId=103] Shutting down (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2024-08-26 17:07:29,929] INFO [ControllerEventThread controllerId=103] Shutdown completed (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2024-08-26 17:07:29,929] INFO [ControllerEventThread controllerId=103] Stopped (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2024-08-26 17:07:29,930] DEBUG [Controller id=103] Resigning (kafka.controller.KafkaController)
+[2024-08-26 17:07:29,931] DEBUG [Controller id=103] Unregister BrokerModifications handler for Set() (kafka.controller.KafkaController)
+[2024-08-26 17:07:29,931] INFO [PartitionStateMachine controllerId=103] Stopped partition state machine (kafka.controller.ZkPartitionStateMachine)
+[2024-08-26 17:07:29,931] INFO [ReplicaStateMachine controllerId=103] Stopped replica state machine (kafka.controller.ZkReplicaStateMachine)
+[2024-08-26 17:07:29,932] INFO [Controller id=103] Resigned (kafka.controller.KafkaController)

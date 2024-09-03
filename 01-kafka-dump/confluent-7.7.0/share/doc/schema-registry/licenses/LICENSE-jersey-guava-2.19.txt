@@ -1,1 +1,0 @@
-LICENSE-jersey-bean-validation-2.19.txt

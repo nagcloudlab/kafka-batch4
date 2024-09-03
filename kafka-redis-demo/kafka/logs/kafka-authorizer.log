@@ -1,0 +1,1 @@
+[2024-08-29 15:35:03,187] INFO Principal = User:CN=localhost,OU=tng,O=npci,L=mumbai,ST=MH,C=IN is Denied Operation = Describe from host = 127.0.0.1 on resource = Topic:LITERAL:chennai-topic for request = Metadata with resourceRefCount = 1 (kafka.authorizer.logger)

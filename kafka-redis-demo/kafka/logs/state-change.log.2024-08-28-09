@@ -1,0 +1,6 @@
+[2024-08-28 16:01:23,237] INFO [Broker id=2] Transitioning 1 partition(s) to local leaders. (state.change.logger)
+[2024-08-28 16:01:23,258] INFO [Broker id=2] Creating new partition test-topic-1 with topic id G88lmuALTVq2cKfkmey8EA. (state.change.logger)
+[2024-08-28 16:01:23,303] INFO [Broker id=2] Leader test-topic-1 with topic id Some(G88lmuALTVq2cKfkmey8EA) starts at leader epoch 0 from offset 0 with partition epoch 0, high watermark 0, ISR [2], adding replicas [] and removing replicas [] . Previous leader None and previous leader epoch was -1. (state.change.logger)
+[2024-08-28 16:42:35,640] INFO [Broker id=2] Transitioning 1 partition(s) to local followers. (state.change.logger)
+[2024-08-28 16:42:35,654] INFO [Broker id=2] Follower test-topic-1 starts at leader epoch 1 from offset 0 with partition epoch 1 and high watermark 0. Current leader is -1. Previous leader Some(-1) and previous leader epoch was 1. (state.change.logger)
+[2024-08-28 16:42:35,658] INFO [Broker id=2] Stopped fetchers as part of controlled shutdown for 1 partitions (state.change.logger)

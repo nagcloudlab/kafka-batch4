@@ -1,9 +1,0 @@
-{
-  "namespace": "com.example.avro",
-  "type": "record",
-  "name": "ProcessedOrder",
-  "fields": [
-    {"name": "time_processed", "type": "long"},
-    {"name": "product", "type": "string"}
-  ]
-}
