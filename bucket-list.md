@@ -1,0 +1,6 @@
+- kafka transactional messaging
+- kafka streams example
+- arch patterns around kafka/redis
+- security around kafka/redis
+- best practices for kafka/redis
+- kraft

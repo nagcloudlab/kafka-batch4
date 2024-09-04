@@ -16,6 +16,10 @@ bin/kafka-storage.sh format --config config/kraft/server-102.properties --cluste
 
 bin/kafka-storage.sh format --config config/kraft/server-103.properties --cluster-id reLhSuUYT7mJU5JUvLaWCQ
 
+bin/kafka-server-start.sh config/kraft/server-101.properties
+bin/kafka-server-start.sh config/kraft/server-102.properties
+bin/kafka-server-start.sh config/kraft/server-103.properties
+
 ## Kafka UI
 
 cd path/to/kafka-ui

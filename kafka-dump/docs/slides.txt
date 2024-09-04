@@ -1,2 +1,3 @@
 https://docs.google.com/presentation/d/15AQYMQQdoqsqkGKXOJtG_yZ8TcUVLHku47VEn9onxHc/edit?usp=sharing
-https://nagcloudlab.notion.site/Kafka_Archive-bea7ff19824e49cba00cf3e59e9eff15?pvs=4
+
+https://nagcloudlab.notion.site/Kafka-Redis-mumbai-81a638271e8f47eb8c6d0b5eaf68faa1?pvs=4
